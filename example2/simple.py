@@ -1,18 +1,21 @@
-"""
-This script demonstrates how to create a bare-bones, fully functional
-chatbot using PyAIML.
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+import sys
+sys.path.insert(0, "../")
 
 import aiml
-import sys
 
-# Create a Kernel object.
+# The Kernel object is the public interface to
+# the AIML interpreter.
 kern = aiml.Kernel()
 
-# When loading an AIML set, you have two options: load the original
-# AIML files, or load a precompiled "brain" that was created from a
-# previous run. If no brain file is available, we force a reload of
-# the AIML files.
+# Use the 'learn' method to load the contents
+# of an AIML file into the Kernel.
+# k.learn("cn-startup.xml")
+
+
 brainLoaded = False
 forceReload = False
 while not brainLoaded:
@@ -21,7 +24,7 @@ while not brainLoaded:
         # optional learnFiles argument is a file (or list of files) to load.
         # The optional commands argument is a command (or list of commands)
         # to run after the files are loaded.
-        kern.bootstrap(learnFiles="std-startup.xml", commands="load aiml b")
+        kern.bootstrap(learnFiles="cn-startup.xml", commands="load aiml cnask")
         brainLoaded = True
         # Now that we've loaded the brain, save it to speed things up for
         # next time.
@@ -36,9 +39,12 @@ while not brainLoaded:
         except:
             forceReload = True
 
-# Enter the main input/output loop.
-print("\nINTERACTIVE MODE (ctrl-c to exit)")
-while(True):
-    inpt = input("> ")
+# Use the 'respond' method to compute the response
+# to a user's input string.  respond() returns
+# the interpreter's response, which in this case
+# we ignore.
+# k.respond("load aiml cnask")
 
-    print(kern.respond(inpt))
+# Loop forever, reading user input from the command
+# line and printing responses.
+while True: print(kern.respond(input("> ")))

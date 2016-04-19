@@ -18,6 +18,9 @@ import time
 import threading
 import xml.sax
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 
 class Kernel:
     # module constants
@@ -224,9 +227,9 @@ class Kernel:
         substituter.
 
         """
-        inFile = open(filename)
+        inFile = open(filename, encoding='utf-8')
         parser = ConfigParser()
-        parser.readfp(inFile, filename)
+        parser.read_file(inFile, filename)
         inFile.close()
         for s in parser.sections():
             # Add a new WordSub instance for this section.  If one already
@@ -304,9 +307,12 @@ class Kernel:
 
         #ensure that input is a unicode string
         if sys.version_info.major <3:
-            try: inpt = inpt.decode(self._textEncoding, 'replace')
-            except UnicodeError: pass
-            except AttributeError: pass
+            try:
+                inpt = inpt.decode(self._textEncoding, 'replace')
+            except UnicodeError:
+                pass
+            except AttributeError:
+                pass
         
         # prevent other threads from stomping all over us.
         self._respondLock.acquire()
@@ -316,6 +322,9 @@ class Kernel:
 
         # split the input into discrete sentences
         sentences = Utils.sentences(inpt)
+
+        logging.debug("Sentences in Kernel: %s" % ''.join(sentences))
+
         finalResponse = ""
         for s in sentences:
             # Add the input to the history list before fetching the
