@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Atom	hownet.py	/^class Atom(object):$/;"	c
+Primitive	hownet.py	/^class Primitive(object):$/;"	c
+Word	hownet.py	/^class Word(object):$/;"	c
+WordType	hownet.py	/^WordType = {$/;"	v
+__init__	hownet.py	/^    def __init__(self):$/;"	m	class:Primitive
+__init__	hownet.py	/^    def __init__(self):$/;"	m	class:Word
+__init__	hownet.py	/^    def __init__(self, part=None):$/;"	m	class:Atom
+__str__	hownet.py	/^    def __str__(self):$/;"	m	class:Atom	file:
+__str__	hownet.py	/^    def __str__(self):$/;"	m	class:Word	file:
+_similar_word	hownet.py	/^def _similar_word(w1, w2):$/;"	f
+add_other_primitive	hownet.py	/^    def add_other_primitive(self, atom):$/;"	m	class:Word
+add_primitive	hownet.py	/^    def add_primitive(self, atom):$/;"	m	class:Word
+add_relational_primitive	hownet.py	/^    def add_relational_primitive(self, key, atom):$/;"	m	class:Word
+add_symbol_primitive	hownet.py	/^    def add_symbol_primitive(self, key, atom):$/;"	m	class:Word
+all_primitives	hownet.py	/^    all_primitives = None$/;"	v	class:Primitive
+all_words	hownet.py	/^    all_words = None$/;"	v	class:Primitive
+alpha	hownet.py	/^alpha = 1.6$/;"	v
+beta1	hownet.py	/^beta1 = 0.5$/;"	v
+beta2	hownet.py	/^beta2 = 0.2$/;"	v
+beta3	hownet.py	/^beta3 = 0.17$/;"	v
+beta4	hownet.py	/^beta4 = 0.13$/;"	v
+copy	hownet.py	/^import copy$/;"	i
+delta	hownet.py	/^delta = 0.2$/;"	v
+gamma	hownet.py	/^gamma = 0.2$/;"	v
+get_parents	hownet.py	/^    def get_parents(self, primitive_eng):$/;"	m	class:Primitive
+init	hownet.py	/^    def init(cls):$/;"	m	class:Primitive
+is_top	hownet.py	/^    def is_top(self):$/;"	m	class:Primitive
+lst	hownet.py	/^    lst = list()$/;"	v
+parse	hownet.py	/^    def parse(self, part):$/;"	m	class:Atom
+parse_word	hownet.py	/^    def parse_word(cls, line):$/;"	m	class:Primitive
+primitives_id	hownet.py	/^    primitives_id = None$/;"	v	class:Primitive
+print_list	hownet.py	/^def print_list(l):$/;"	f
+similar	hownet.py	/^    def similar(self, primitive1_eng, primitive2_eng):$/;"	m	class:Primitive
+similar_inner	hownet.py	/^def similar_inner(atom1, atom2):$/;"	f
+similar_list	hownet.py	/^def similar_list(l1_readonly, l2_readonly):$/;"	f
+similar_map	hownet.py	/^def similar_map(m1, m2):$/;"	f
+similar_word	hownet.py	/^def similar_word(w1_str, w2_str):$/;"	f

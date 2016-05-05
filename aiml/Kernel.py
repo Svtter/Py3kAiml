@@ -5,6 +5,7 @@ from . import DefaultSubs
 from . import Utils
 from .PatternMgr import PatternMgr
 from .WordSub import WordSub
+from .LangSupport import mergeChineseSpace
 
 from configparser import ConfigParser
 import copy
@@ -323,7 +324,7 @@ class Kernel:
         # split the input into discrete sentences
         sentences = Utils.sentences(inpt)
 
-        logging.debug("Sentences in Kernel: %s" % ''.join(sentences))
+        logging.debug("Sentences in Kernel, split_result:  %s" % ''.join(sentences))
 
         finalResponse = ""
         for s in sentences:
@@ -348,9 +349,12 @@ class Kernel:
             # append this response to the final response.
             finalResponse += (response + "  ")
         finalResponse = finalResponse.strip()
+        # ?????????
+        # for single in finalResponse:
+        finalResponse = mergeChineseSpace(finalResponse)
 
         assert(len(self.getPredicate(self._inputStack, sessionID)) == 0)
-        
+
         # release the lock and return
         self._respondLock.release()
         try: 

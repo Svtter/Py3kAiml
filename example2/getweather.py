@@ -24,7 +24,7 @@ def queryLocation(term):
     return code
 
 def queryRealTimeWeatherInfo(code):
-    #url = "http://m.weather.com.cn/data/%s.html" % code
+    # url = "http://m.weather.com.cn/data/%s.html" % code
     url = "http://www.weather.com.cn/data/sk/%s.html" % code
     resp = urllib.urlopen(url)
     data = json.load(resp)

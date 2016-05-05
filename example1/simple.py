@@ -36,7 +36,7 @@ while not brainLoaded:
         # method.
         try:
             # The optional branFile argument specifies a brain file to load.
-            kern.bootstrap(brainFile = "standard.brn")
+            kern.bootstrap(brainFile="standard.brn")
             brainLoaded = True
         except:
             forceReload = True

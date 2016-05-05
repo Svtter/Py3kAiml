@@ -31,8 +31,8 @@ def splitChinese(sentence, cutAll=False):
     # return seg_list
 
 
-def mergeChineseSpace(word):
-    return u''.join(word).strip()
+def mergeChineseSpace(sentence):
+    return ''.join(list(filter(lambda x: x != ' ', sentence)))
 
 
 if __name__ == '__main__':

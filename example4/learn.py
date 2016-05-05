@@ -31,14 +31,14 @@ category_template = """
 #print sys.argv
 if len(sys.argv) == 3:
     _, rule, temp = sys.argv
-    # rule = mergeChineseSpace(str(rule, 'utf8'))
-    # temp = mergeChineseSpace(str(temp, 'utf8'))
+    rule = mergeChineseSpace(str(rule, 'utf8'))
+    temp = mergeChineseSpace(str(temp, 'utf8'))
     db[rule] = temp
     db.sync()
     rules = []
     for r in db:
         rules.append(category_template.format(pattern=r,
                                               answer=db[r]))
-    content = template.format(rules = '\n'.join(rules))
+    content = template.format(rules='\n'.join(rules))
     with open("auto-gen.aiml", 'w', encoding='utf-8') as fp:
         fp.write(content)

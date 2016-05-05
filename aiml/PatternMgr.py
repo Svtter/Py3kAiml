@@ -5,8 +5,13 @@
 import marshal
 import pprint
 import re
-import string
-import sys
+
+from similarity import similar_init
+from similarity import similar_word
+
+
+# import sys
+# import string
 
 # todo:
 # from enum import Enum
@@ -28,6 +33,8 @@ class PatternMgr:
         punctuation = "\"`~!@#$%^&*()-_=+[{]}\|;:',<.>/?"
         self._puncStripRE = re.compile("[" + re.escape(punctuation) + "]", re.UNICODE)
         self._whitespaceRE = re.compile("\s+", re.LOCALE | re.UNICODE)
+        similar_init()  # need DATA
+
 
     def numTemplates(self):
         """Return the number of templates currently stored."""
@@ -307,11 +314,21 @@ class PatternMgr:
                     return (newPattern, template)
 
         # Check first
-        if first in root:
-            pattern, template = self._match(suffix, thatWords, topicWords, root[first])
-            if template is not None:
-                newPattern = [first] + pattern
-                return (newPattern, template)
+        # if first in root:
+        #     pattern, template = self._match(suffix, thatWords, topicWords, root[first])
+        #     if template is not None:
+        #         newPattern = [first] + pattern
+        #         return (newPattern, template)
+
+        # 相似度算法
+        for key in root:
+            first = first
+            simiDigit = similar_word(key, first)
+            if simiDigit > 0.8:
+                pattern, template = self._match(suffix, thatWords, topicWords, root[key])
+                if template is not None:
+                    newPattern = [key] + pattern
+                    return (newPattern, template)
 
         # check bot name
         if self._BOT_NAME in root and first == self._botName:
@@ -330,6 +347,7 @@ class PatternMgr:
                 if template is not None:
                     newPattern = [self._STAR] + pattern
                     return (newPattern, template)
+
 
         # No matches were found.
         return (None, None)
