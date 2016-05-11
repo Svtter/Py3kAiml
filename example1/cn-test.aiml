@@ -66,19 +66,11 @@
 </template>
 </category>
 
-
-<category>
-<pattern>一个*</pattern>
-<template>
-那个叫<set name="it"><person/></set>东西是什么玩意?
-</template>
-</category>
-
 <category>
 <pattern>_</pattern>
 <that>我怎么称呼你</that>
 <template>
-<think><set name="personality">average</set><set name="name"><formal><star/></formal></set></think>
+<think><set name="personality">average</set><set name="name"><star/></set></think>
 很高兴见到你, <get name="name"/>.
 </template>
 </category>

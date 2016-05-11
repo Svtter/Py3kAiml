@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0">
+
+<!-- Free software (c) 2016 Svitter -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License -->
+<!-- as published by the Free Software Foundation. -->
+
+<meta name="author" content="Svitter"/>
+<meta name="language" content="zh"/>
+
+<category>
+<pattern>* 再见</pattern>
+<template>
+<srai>BYE</srai>
+</template>
+</category>
+
+<category>
+<pattern>再见</pattern>
+<template>
+<srai>BYE</srai>
+</template>
+</category>
+
+<category>
+<pattern>你好</pattern>
+<template>
+<srai>HELLO</srai>
+</template>
+</category>
+
+<category>
+<pattern>谢谢</pattern>
+<template>
+<random>
+  <li>不客气.</li>
+  <li>你太客气了.</li>
+</random>
+</template>
+</category>
+
+
+<category>
+<pattern>BYE</pattern>
+<template>
+<random>
+<li>再见<get name="name"/>.</li>
+<li>再见啦, <get name="name"/>.</li>
+<li>下次见, <get name="name"/>.</li>
+<li>谢谢你陪我聊天, <get name="name"/>.</li>
+<li>改天见, <get name="name"/>.</li>
+</random>
+</template>
+</category>
+
+<category>
+<pattern>HELLO</pattern>
+<template>
+<random>
+<li>你好.</li>
+<li>你也好.</li>
+<li>你好啊.</li>
+</random>
+</template>
+</category>
+
+</aiml>

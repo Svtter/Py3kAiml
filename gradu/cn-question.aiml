@@ -2,26 +2,17 @@
 
 <aiml version="1.0">
 
-<!-- Free software (c) 2012 andelf -->
+<!-- Free software (c) 2016 Svitter -->
 <!-- This program is open source code released under -->
 <!-- the terms of the GNU General Public License -->
 <!-- as published by the Free Software Foundation. -->
 
-<meta name="author" content="Andelf"/>
+<meta name="author" content="Svitter"/>
 <meta name="language" content="zh"/>
 
 <category>
-<pattern>一个*</pattern>
-<template>
-那个叫<set name="it"><person/></set>东西是什么玩意?
-</template>
+
 </category>
 
-<category>
-<pattern>一坨大便</pattern>
-<template>
-你真恶心
-</template>
-</category>
 
 </aiml>
