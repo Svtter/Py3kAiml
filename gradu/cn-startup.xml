@@ -6,10 +6,7 @@
 
 <!-- Load chinese AIML set -->
 <!-- <learn>cn-profile.aiml</learn> -->
-<learn>cn-test.aiml</learn>
-<learn>cn-daily.aiml</learn>
-<learn>cn-question.aiml</learn>
-<learn>cn-sample.aiml</learn>
+<learn>aiml/*.aiml</learn>
 
 
 </template>

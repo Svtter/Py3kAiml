@@ -3,7 +3,11 @@
 import jieba
 import jieba.analyse
 
-content = open('data', 'rb').read()
+'''
+不做处理直接对问题答案进行idf分析
+'''
+
+content = open('data-simple', 'rb').read()
 tags = jieba.analyse.extract_tags(content, withWeight=True)
 
 for tag in tags:

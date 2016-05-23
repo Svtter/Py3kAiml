@@ -470,6 +470,7 @@ if __name__ == '__main__':
     lst.append(('你','你们'))
     lst.append(('玫瑰','菊花'))
     lst.append(('在下', '我'))
+    lst.append(('消费', '花费'))
     for x, y in lst:
         print(x, y, ': ', similar_word(x, y))
 
