@@ -10,10 +10,14 @@ import jieba
 import jieba.analyse
 
 # jieba字典
-# jieba.load_userdict('dict')
-jieba.load_userdict('dict.txt')
 
-output = open('test.aiml', 'w')
+FILE = 'test3.aiml'
+TOPK = 2
+
+jieba.load_userdict('dict.txt')
+jieba.analyse.set_idf_path('idf.txt.big')
+
+output = open(FILE, 'w')
 
 
 def gentags(ele, content):
@@ -31,8 +35,12 @@ pattern, templete = "", ""
 with open('data-simple', 'r') as f:
     for line in f.readlines():
         if line.startswith("Q:"):
-            tags = jieba.analyse.extract_tags(line, topK=4)
+            tags = jieba.analyse.extract_tags(line, topK=TOPK)
             content = ("".join(tags))
+            topk = TOPK
+            while topk < 4:
+                content += '*'
+                topk += 1
             content += '\n'
             pattern = gentags('pattern', content)
 

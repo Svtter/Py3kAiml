@@ -59,9 +59,9 @@
 <pattern>HELLO</pattern>
 <template>
 <random>
-<li>你好.</li>
-<li>你也好.</li>
-<li>你好啊.</li>
+<li>你好，请问想问什么问题？</li>
+<li>嗯，你也好。你有什么问题吗~</li>
+<li>你好啊，想问什么问题呢？</li>
 </random>
 </template>
 </category>

@@ -11,6 +11,7 @@ import jieba.analyse
 class AnswerBot:
 
     def __init__(self):
+        print("AnswerBot initialize.")
 
         self.kern = aiml.Kernel()
         self.dt = aiml.dt
@@ -22,8 +23,10 @@ class AnswerBot:
         if text.startswith('反馈'):
             self.writein(text[2:])
             return "您的问题已经反馈给管理员，将在后续陆续添加。"
+        jieba.analyse.set_idf_path('Gendict/idf.txt.big')
         tags = jieba.analyse.extract_tags(text, topK=4)
-        print(''.join(tags))
+        text = ''.join(tags)
+        print('DEBUG: ', text)
         return self.kern.respond(text)
 
     # TODO: 并发问题

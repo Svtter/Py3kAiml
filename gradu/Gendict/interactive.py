@@ -6,6 +6,7 @@ import jieba.analyse
 
 # jieba字典
 jieba.load_userdict('dict.txt')
+jieba.analyse.set_idf_path('idf.txt.big')
 
 while True:
     content = input("> ")
